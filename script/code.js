@@ -38,10 +38,149 @@ function cadenaADN(x){
                 break;
         }
     }
+    let codones = []
+    for(let i=0; i<arn.length; i= i+3){
+        let prote = arn[i] + arn[i+1] + arn[i+2]
+        switch (prote) {
+
+            case 'AAA' :
+            case 'AAG' :
+            codones.push("Lisina")
+            break;
+
+            case 'UUU':
+            case 'UUC':
+            codones.push("Felinanalina")
+            break;
+            
+            case 'UUG':
+            case "CUU":
+            case "CUC":
+            case 'CUA':
+            case 'CUG':
+            case 'UUA':
+            codones.push("Leucina")
+            break;
+
+            case 'AUU' :
+            case'AUC' :
+            case 'AUA' :
+            codones.push('Isoleucina')
+            break;
+
+            case 'AUG' :
+            codones.push('Metionina (inicio) ')
+            break;
+
+            case "GUA":
+            case "GUU":
+            case "GUC":
+            case "GUG":
+            codones.push("Valina");
+            break;
+
+            case 'UCU':
+            case 'UAC':
+            case 'UCC' :
+            case 'UCG' :
+            case 'AGU' :
+            case 'AGC' :
+            codones.push('Serina')
+            break;
+
+            case 'CCU':
+            case 'CCC':
+            case 'CCA' :
+            case 'CCG' :
+            codones.push('Prolina')
+            break;
+
+            case 'ACU':
+            case 'ACC':
+            case 'ACA' :
+            case 'ACG' :
+            codones.push('Treonina')
+            break;
+
+            case 'GCU':
+            case 'GCC':
+            case 'GCA' :
+            case 'GCG' :
+            codones.push('Alanina')
+            break;
+
+            case 'UAU' :
+            case 'UAC' :
+            codones.push('Tirosina')
+            break;
+
+            case 'UAA' :
+            case 'UAG' :
+            case 'UGA' :
+            codones.push('STOP')
+            break;
+
+            case 'CAU' :
+            case 'CAC' :
+            codones.push('Histidina')
+            break;
+
+            case 'CAA' :
+            case 'CAG' :
+            codones.push('Glutamina')
+            break;
+
+            case 'AAU' :
+            case 'AAC' :
+            codones.push('Asparagina')
+            break;
+
+            case 'GAA' :
+            case 'GAG' :
+            codones.push('Ácido Glutámico')
+            break;
+
+            case 'GAU' :
+            case 'GAC' :
+            codones.push('Ácido Aspártico')
+
+            case 'UGG' :
+            codones.push('Triptófano')
+            break;
+
+            case 'UGU' :
+            case 'UGC' :
+            codones.push("Clisteína")
+            break;
+            
+            case 'AGG':
+            case "AGA":
+            case "CGG":
+            case 'CGA':
+            case 'CGC':
+            case 'CGU':
+            codones.push("Arginina")
+            break;
+            
+            case 'GGU':
+            case 'GGC':
+            case 'GGA' :
+            case 'GGG' :
+            codones.push('Glicina')
+            break;
+
+            default:
+            break;
+        }
+
+    }
     let adn = {
-    helice1 : cadena, 
-    helice2 : cadena2, 
-    ARN : arn 
+    ADN: {
+        helice1: cadena,
+        helice2: cadena2
+    },
+    ARN : arn,
+    Codones: codones
 }
 
 
@@ -52,7 +191,7 @@ function cadenaADN(x){
 
 
 
-const boton = document.getElementById('h');
+/*const boton = document.getElementById('h');
 const C1HTML= document.getElementById("c1");
 const C2HTML = document.getElementById("c2");
 const ARNHTML = document.getElementById("arn")
@@ -60,9 +199,9 @@ const ARNHTML = document.getElementById("arn")
 boton.addEventListener("click", function() {
     console.log("generando")
     let newADN = cadenaADN(18)
-    C1HTML.textContent = newADN.helice1
-    C2HTML.textContent = newADN.helice2
+    C1HTML.textContent = newADN.ADN.helice1
+    C2HTML.textContent = newADN.ADN.helice2
     ARNHTML.textContent = newADN.ARN
 
-});
-console.log(cadenaADN(18))
+});*/
+console.log(cadenaADN(12))
