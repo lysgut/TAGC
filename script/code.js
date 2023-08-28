@@ -1,4 +1,3 @@
-let CATG = ['G', 'C', 'A', 'T']
 
 function random(x){
     let numeroFinal = Math.random() * x;
@@ -6,17 +5,40 @@ function random(x){
     return numeroFinal
 }
 
-function cadenaADN(x){
-    let cadena = 'ATG'
-    let fin = ['TAA','TAG', 'TGA']
-    for(let i = 0; i < x-6; i++){
-        cadena += CATG[random(4)]
-    }
-    cadena+= fin[random(3)]
+function ADNARN(x){
+    let cadena = "ATG"
+    let cadena2 = ""
+    let arn = ""
+    let codones = []
 
-    let cadena2 = ''
-    let arn = ''
-    for(elem of cadena){
+    let proteinas= [
+        "TTT", "TTA", "TTG", "TTC",
+        "TAT", "TAC",
+        "TGT", "TGG", "TGC",
+        "TCT", "TCA", "TCG", "TCC",
+        "ATT", "ATA", "ATG", "ATC",
+        "AAT", "AAA", "AAG", "AAC",
+        "AGT", "AGA", "AGG", "AGC",
+        "ACT", "ACA", "ACG", "ACC",
+        "CTT", "CTA", "CTG", "CTC",
+        "CAT", "CAA", "CAG", "CAC",
+        "CGT", "CGA", "CGG", "CGC",
+        "CCT", "CCA", "CCG", "CCC",
+        "GTT", "GTA", "GTG", "GTC",
+        "GAT", "GAA", "GAG", "GAC",
+        "GGT", "GGA", "GGG", "GGC",
+        "GCT", "GCA", "GCG", "GCC"
+      ];
+
+      for (i=0; i<x; i++){
+        cadena+=proteinas[random(61)]
+      }
+
+      let fin = ["TAG", "TGA", "TAA"]
+      
+      cadena += fin[random(3)]
+
+      for(elem of cadena){
         switch (elem) {
             case 'A':
                 cadena2+= 'T'
@@ -38,19 +60,19 @@ function cadenaADN(x){
                 break;
         }
     }
-    let codones = []
+
     for(let i=0; i<arn.length; i= i+3){
         let prote = arn[i] + arn[i+1] + arn[i+2]
         switch (prote) {
 
             case 'AAA' :
             case 'AAG' :
-            codones.push("Lisina")
+            codones.push(" Lisina")
             break;
 
             case 'UUU':
             case 'UUC':
-            codones.push("Felinanalina")
+            codones.push(" Felinanalina")
             break;
             
             case 'UUG':
@@ -59,149 +81,151 @@ function cadenaADN(x){
             case 'CUA':
             case 'CUG':
             case 'UUA':
-            codones.push("Leucina")
+            codones.push(" Leucina")
             break;
 
             case 'AUU' :
             case'AUC' :
             case 'AUA' :
-            codones.push('Isoleucina')
+            codones.push(' Isoleucina')
             break;
 
             case 'AUG' :
-            codones.push('Metionina (inicio) ')
+            codones.push(' Metionina')
             break;
 
             case "GUA":
             case "GUU":
             case "GUC":
             case "GUG":
-            codones.push("Valina");
+            codones.push(" Valina");
             break;
 
             case 'UCU':
-            case 'UAC':
+            case 'UCA':
             case 'UCC' :
             case 'UCG' :
             case 'AGU' :
             case 'AGC' :
-            codones.push('Serina')
+            codones.push(' Serina')
             break;
 
             case 'CCU':
             case 'CCC':
             case 'CCA' :
             case 'CCG' :
-            codones.push('Prolina')
+            codones.push(' Prolina')
             break;
 
             case 'ACU':
             case 'ACC':
             case 'ACA' :
             case 'ACG' :
-            codones.push('Treonina')
+            codones.push(' Treonina')
             break;
 
             case 'GCU':
             case 'GCC':
             case 'GCA' :
             case 'GCG' :
-            codones.push('Alanina')
+            codones.push(' Alanina')
             break;
 
             case 'UAU' :
             case 'UAC' :
-            codones.push('Tirosina')
+            codones.push(' Tirosina')
             break;
 
             case 'UAA' :
             case 'UAG' :
             case 'UGA' :
-            codones.push('STOP')
+            codones.push(' STOP')
             break;
 
             case 'CAU' :
             case 'CAC' :
-            codones.push('Histidina')
+            codones.push(' Histidina')
             break;
 
             case 'CAA' :
             case 'CAG' :
-            codones.push('Glutamina')
+            codones.push(' Glutamina')
             break;
 
             case 'AAU' :
             case 'AAC' :
-            codones.push('Asparagina')
+            codones.push(' Asparagina')
             break;
 
             case 'GAA' :
             case 'GAG' :
-            codones.push('Ácido Glutámico')
+            codones.push(' Ácido Glutámico')
             break;
 
             case 'GAU' :
             case 'GAC' :
-            codones.push('Ácido Aspártico')
+            codones.push(' Ácido Aspártico')
 
             case 'UGG' :
-            codones.push('Triptófano')
+            codones.push(' Triptófano')
             break;
 
             case 'UGU' :
             case 'UGC' :
-            codones.push("Clisteína")
+            codones.push(" Clisteína")
             break;
-            
+
             case 'AGG':
             case "AGA":
             case "CGG":
             case 'CGA':
             case 'CGC':
             case 'CGU':
-            codones.push("Arginina")
+            codones.push(" Arginina")
             break;
             
             case 'GGU':
             case 'GGC':
             case 'GGA' :
             case 'GGG' :
-            codones.push('Glicina')
+            codones.push(' Glicina')
             break;
 
             default:
             break;
         }
-
+codones[0] = "Metionina (de inicio)"
     }
     let adn = {
-    ADN: {
-        helice1: cadena,
-        helice2: cadena2
-    },
-    ARN : arn,
-    Codones: codones
-}
-
-
-
-    return adn
+        ADN: {
+            helice1: cadena,
+            helice2: cadena2
+        },
+        ARN : arn,
+        codones: codones
+    }
     
+    
+    
+        return adn
+        
+
 }
 
-
-
-/*const boton = document.getElementById('h');
+const boton = document.getElementById('h');
 const C1HTML= document.getElementById("c1");
 const C2HTML = document.getElementById("c2");
-const ARNHTML = document.getElementById("arn")
+const ARNHTML = document.getElementById("arn");
+const CODONS = document.getElementById("codons")
 
 boton.addEventListener("click", function() {
     console.log("generando")
-    let newADN = cadenaADN(18)
+    let newADN = ADNARN(4)
     C1HTML.textContent = newADN.ADN.helice1
     C2HTML.textContent = newADN.ADN.helice2
     ARNHTML.textContent = newADN.ARN
+    CODONS.textContent = newADN.codones
 
-});*/
-console.log(cadenaADN(12))
+
+})
+console.log(ADNARN(20))
