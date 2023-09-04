@@ -28,15 +28,15 @@ function ADNARN(x){
         "GAT", "GAA", "GAG", "GAC",
         "GGT", "GGA", "GGG", "GGC",
         "GCT", "GCA", "GCG", "GCC"
-      ];
+        ];
 
-      for (i=0; i<x; i++){
+        for (i=0; i<x; i++){
         cadena+=proteinas[random(61)]
-      }
+        }
 
-      let fin = ["TAG", "TGA", "TAA"]
-      
-      cadena += fin[random(3)]
+        let fin = ["TAG", "TGA", "TAA"]
+        
+        cadena += fin[random(3)]
 
       for(elem of cadena){
         switch (elem) {
